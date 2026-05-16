@@ -77,7 +77,7 @@ namespace Tonic {
   
   // add a Generator to another thing
   
-  static Adder operator + (Generator a, Generator b){
+  inline Adder operator + (Generator a, Generator b){
     Adder add;
     add.input(a);
     add.input(b);
@@ -85,7 +85,7 @@ namespace Tonic {
   }
   
   
-  static Adder operator + (float a, Generator b){
+  inline Adder operator + (float a, Generator b){
     Adder add;
     add.input(FixedValue(a));
     add.input(b);
@@ -93,7 +93,7 @@ namespace Tonic {
   }
   
   
-  static Adder operator + (Generator a, float b){
+  inline Adder operator + (Generator a, float b){
     Adder add;
     add.input(a);
     add.input(FixedValue(b));
@@ -103,21 +103,21 @@ namespace Tonic {
   
   // Add a Generatator and a ControlGenerator
   
-  static Adder operator + (Generator a, ControlGenerator b){
+  inline Adder operator + (Generator a, ControlGenerator b){
     return a + FixedValue().setValue(b);
   }
   
-  static Adder operator + (ControlGenerator a, Generator b){
+  inline Adder operator + (ControlGenerator a, Generator b){
     return FixedValue().setValue(a) + b;
   }
   
   // Add an Adder and a ControlGenerator
   
-    static Adder operator + (Adder a, ControlGenerator b){
+  inline Adder operator + (Adder a, ControlGenerator b){
     return a + FixedValue().setValue(b);
   }
   
-  static Adder operator + (ControlGenerator a, Adder b){
+  inline Adder operator + (ControlGenerator a, Adder b){
     return FixedValue().setValue(a) + b;
   }
   
@@ -165,21 +165,21 @@ namespace Tonic {
   };
   
   
-  static Subtractor operator - (Generator a, Generator b){
+  inline Subtractor operator - (Generator a, Generator b){
     Subtractor sub;
     sub.left(a);
     sub.right(b);
     return sub;
   }
   
-  static Subtractor operator - (float a, Generator b){
+  inline Subtractor operator - (float a, Generator b){
     Subtractor sub;
     sub.left(FixedValue(a));
     sub.right(b);
     return sub;
   }
   
-  static Subtractor operator - (Generator a, float b){
+  inline Subtractor operator - (Generator a, float b){
     Subtractor sub;
     sub.left(a);
     sub.right(FixedValue(b));
@@ -188,11 +188,11 @@ namespace Tonic {
   
   // Subtract a Generatator and a ControlGenerator
   
-  static Subtractor operator - (Generator a, ControlGenerator b){
+  inline Subtractor operator - (Generator a, ControlGenerator b){
     return a - FixedValue().setValue(b);
   }
   
-  static Subtractor operator - (ControlGenerator a, Generator b){
+  inline Subtractor operator - (ControlGenerator a, Generator b){
     return FixedValue().setValue(a) - b;
   }
   
@@ -257,39 +257,39 @@ namespace Tonic {
     
   };
   
-  static Multiplier operator*(Generator a, Generator b){
+  inline Multiplier operator*(Generator a, Generator b){
     Multiplier mult;
     mult.input(a);
     mult.input(b);
     return mult;
   }
   
-  static Multiplier operator*(float a, Generator b){
+  inline Multiplier operator*(float a, Generator b){
     return FixedValue(a) * b;
   }
   
-  static Multiplier operator*(Generator a, float b){
+  inline Multiplier operator*(Generator a, float b){
     return a * FixedValue(b);
   }
   
   
   // Multiply a Generatator and a ControlGenerator
   
-  static Multiplier operator * (Generator a, ControlGenerator b){
+  inline Multiplier operator * (Generator a, ControlGenerator b){
     return a * FixedValue().setValue(b);
   }
   
-  static Multiplier operator * (ControlGenerator a, Generator b){
+  inline Multiplier operator * (ControlGenerator a, Generator b){
     return FixedValue().setValue(a) * b;
   }
   
   // Multiply an Multiplier and a ControlGenerator
   
-  static Multiplier operator * (Multiplier a, ControlGenerator b){
+  inline Multiplier operator * (Multiplier a, ControlGenerator b){
     return a * FixedValue().setValue(b);
   }
   
-  static Multiplier operator * (ControlGenerator a, Multiplier b){
+  inline Multiplier operator * (ControlGenerator a, Multiplier b){
     return FixedValue().setValue(a) * b;
   }
   
@@ -337,21 +337,21 @@ namespace Tonic {
   
   
   
-  static Divider operator / (Generator a, Generator b){
+  inline Divider operator / (Generator a, Generator b){
     Divider div;
     div.left(a);
     div.right(b);
     return div;
   }
   
-  static Divider operator / (float a, Generator b){
+  inline Divider operator / (float a, Generator b){
     Divider div;
     div.left(FixedValue(a));
     div.right(b);
     return div;
   }
   
-  static Divider operator / (Generator a, float b){
+  inline Divider operator / (Generator a, float b){
     Divider div;
     div.left(a);
     div.right(FixedValue(b));
@@ -360,11 +360,11 @@ namespace Tonic {
   
   // Subtract a Generatator and a ControlGenerator
   
-  static Divider operator / (Generator a, ControlGenerator b){
+  inline Divider operator / (Generator a, ControlGenerator b){
     return a / FixedValue().setValue(b);
   }
   
-  static Divider operator / (ControlGenerator a, Generator b){
+  inline Divider operator / (ControlGenerator a, Generator b){
     return FixedValue().setValue(a) / b;
   }
   

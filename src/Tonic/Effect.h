@@ -147,7 +147,7 @@ namespace Tonic {
   
   // signal flow operator - sets lhs as input to rhs
   template<class EffectType, class EffectType_>
-  static EffectType operator>>(Generator lhs, TemplatedEffect<EffectType, EffectType_> rhs){
+  inline EffectType operator>>(Generator lhs, TemplatedEffect<EffectType, EffectType_> rhs){
     return rhs.input( lhs );
   }
 
@@ -289,7 +289,7 @@ namespace Tonic {
   
   // signal flow operator - sets lhs as input to rhs
   template<class EffectType, class EffectType_>
-  static EffectType operator>>(Generator lhs, TemplatedWetDryEffect<EffectType, EffectType_> rhs){
+  inline EffectType operator>>(Generator lhs, TemplatedWetDryEffect<EffectType, EffectType_> rhs){
     return rhs.input( lhs );
   }
 }
