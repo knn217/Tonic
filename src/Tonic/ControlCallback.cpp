@@ -50,13 +50,15 @@ namespace Tonic {
   ControlCallback::ControlCallback(Synth synth, function<void(ControlGeneratorOutput)> fn ){
     synth.addAuxControlGenerator(*this);
     gen()->synthWasSet =  true;
-  gen()->setCallback(fn);
+    gen()->setCallback(fn);
 
   }
 
-  ControlCallback::ControlCallback(Synth synth, function<void(ControlGeneratorOutput)> fn)
-  {
-    synth.addAuxControlGenerator(*this);
+  ControlCallback::ControlCallback(Synth* synth, function<void(ControlGeneratorOutput)> fn ){
+    if (synth) {
+        synth->addAuxControlGenerator(*this);
+    }
+    gen()->synthWasSet =  true;
     gen()->setCallback(fn);
   }
 

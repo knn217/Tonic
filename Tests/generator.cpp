@@ -6,7 +6,7 @@
 //  adapted by Andreas Koerner 2015-02-10
 //
 
-#include "tonictests.h"
+#include "TonicTests.h"
 
 TESTSUITE(GeneratorTests, TonicTestcase, "")
 

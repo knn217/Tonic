@@ -312,7 +312,7 @@ namespace Tonic {
   // -- Misc --
   
   inline static TonicFloat randomSample(){
-    return ((TonicFloat)rand()/RAND_MAX) * 2.0f - 1.0f;
+    return ((TonicFloat)rand()/(TonicFloat)RAND_MAX) * 2.0f - 1.0f;
   }
   
   static float randomFloat(float a, float b) {
